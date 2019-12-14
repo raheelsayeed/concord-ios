@@ -70,5 +70,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Notice: All data resides on your device. No data is shared with us or any other third-party.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Notice: All data resides on your device. No data is shared with us or any other third-party.</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Notice: Health Records are used to provide you graphical insights for educational purposes only.</string>
 </dict>
 </plist>

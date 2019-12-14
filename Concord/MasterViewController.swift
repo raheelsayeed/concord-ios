@@ -7,51 +7,45 @@
 //
 
 import UIKit
+import SMARTMarkers
+import SMART
+import ResearchKit
 
 class MasterViewController: UITableViewController {
 
-	var detailViewController: DetailViewController? = nil
-	var objects = [Any]()
+    var taskController: TaskController?
+    var sessionController: SessionController?
+    var instruments = [Instrument]()
+    var btnPatientSelector: UIBarButtonItem?
+    var healthRecords: [[Report]]?
+    var codes: [String]?
+    var patient: Patient? {
+        didSet {
+            DispatchQueue.main.async {
+                self.btnPatientSelector?.title = self.patient?.humanName ?? "Select Patient"
+            }
+        }
+    }
+    
 
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
-		navigationItem.leftBarButtonItem = editButtonItem
+        
+        Patient.read("b85d7e00-3690-4e2a-87a0-f3d2dfc908b3", server: Server.Demo()) { [weak self] (p, e) in
+            self?.patient = (p as? Patient)
+        }
+        
+        btnPatientSelector = UIBarButtonItem(title: "Select Patient", style: .plain, target: self, action: #selector(selectPatient(_:)))
+        navigationItem.leftBarButtonItem = btnPatientSelector
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(fetchHealthRecords(_:)))
 
-		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-		navigationItem.rightBarButtonItem = addButton
-		if let split = splitViewController {
-		    let controllers = split.viewControllers
-		    detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-		}
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
 		super.viewWillAppear(animated)
-	}
-
-	@objc
-	func insertNewObject(_ sender: Any) {
-		objects.insert(NSDate(), at: 0)
-		let indexPath = IndexPath(row: 0, section: 0)
-		tableView.insertRows(at: [indexPath], with: .automatic)
-	}
-
-	// MARK: - Segues
-
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "showDetail" {
-		    if let indexPath = tableView.indexPathForSelectedRow {
-		        let object = objects[indexPath.row] as! NSDate
-		        let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-		        controller.detailItem = object
-		        controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-		        controller.navigationItem.leftItemsSupplementBackButton = true
-		        detailViewController = controller
-		    }
-		}
 	}
 
 	// MARK: - Table View
@@ -61,30 +55,107 @@ class MasterViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return objects.count
+        return healthRecords?.count ?? 0
 	}
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return nil
+    }
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-		let object = objects[indexPath.row] as! NSDate
-		cell.textLabel!.text = object.description
+		let cell = tableView.dequeueReusableCell(withIdentifier: "LabCell", for: indexPath) as! LabCell
+        let records = healthRecords![indexPath.row]
+        let title = records.first?.rp_title
+        let recent = records.last!
+        let chartPoints = records.map { Double($0.rp_observation!)! }
+
+        cell.graphView.title = title
+        cell.graphView.subtitle = "Most Recent: \(recent.rp_observation!) | Code: LOINC \(recent.rp_code!.code!.string)"
+        let (start, end) = colors(for: indexPath.row)
+        cell.graphView.startColor = start
+        cell.graphView.endColor = end
+        cell.graphView.graphPoints = chartPoints
+            
 		return cell
 	}
+    
+    func colors(for idx: Int) -> (UIColor, UIColor) {
+        switch idx {
+        case 0:
+            return (UIColor(red:0.01, green:0.67, blue:0.69, alpha:1.0), UIColor(red:0.00, green:0.80, blue:0.67, alpha:1.0))
+        case 1:
+            return (UIColor(red:0.00, green:0.71, blue:0.86, alpha:1.0), UIColor(red:0.00, green:0.51, blue:0.69, alpha:1.0))
+        case 2:
+            return (UIColor(red: 1, green:  0.493272, blue: 0.473998, alpha: 1), UIColor(red: 1, green:  0.57810, blue: 0, alpha: 1))
+        case 4:
+            return (.lightGray, .gray)
+        case 3:
+            return (UIColor(red:1.00, green:0.25, blue:0.42, alpha:1.0), UIColor(red:1.00, green:0.29, blue:0.17, alpha:1.0))
 
-	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-		// Return false if you do not want the specified item to be editable.
-		return true
-	}
+        default:
+            return (.lightGray, .gray)
+        }
+    }
 
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-		if editingStyle == .delete {
-		    objects.remove(at: indexPath.row)
-		    tableView.deleteRows(at: [indexPath], with: .fade)
-		} else if editingStyle == .insert {
-		    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-		}
-	}
+    
+	
+    
 
 
 }
 
+extension SMART.Server {
+    
+    class func Demo() -> Server {
+        let srv = Server(baseURL: URL(string: "https://r4.smarthealthit.org/")!)
+        srv.name = "SMART Health IT"
+        return srv
+    }
+}
+
+// Patient Selection
+
+extension MasterViewController {
+    
+    @objc func selectPatient(_ sender: Any?) {
+        
+        let patientSelect = PatientListAll()
+        let patientSelectView = PatientListViewController(list: patientSelect, server: Server.Demo())
+        patientSelectView.onPatientSelect = { (patient) in
+            self.patient = patient
+        }
+        self.present(patientSelectView, animated: true, completion: nil)
+        
+    }
+    
+    @objc func fetchHealthRecords(_ sender: Any?) {
+        
+        let instrument = Instruments.HealthKit.HealthRecords.instance
+        
+        taskController = TaskController(instrument: instrument)
+        
+        taskController?.prepareSession(callback: { (task, error) in
+            if let controller = task {
+                self.present(controller, animated: true, completion: nil)
+            }
+        })
+        
+        taskController?.onTaskCompletion = { [unowned self] submissionBundle, error in
+            
+            let fhir_reports = submissionBundle?.bundle.entry?.map({ (bundleEntry) -> Report in
+                return bundleEntry.resource as! Report
+            })
+            
+            let arranged = fhir_reports?.reduce(into: [:]) { dict, report in
+                dict[report.rp_code!.code!.string, default: [Report]()].append(report)
+            }
+            
+            self.healthRecords = Array(arranged!.values)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
+}

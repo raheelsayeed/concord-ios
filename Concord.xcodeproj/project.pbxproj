@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4491AF823A3D8C900F3CAD9 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4491AF523A3D8C900F3CAD9 /* ResearchKit.framework */; };
+		D4491AF923A3D8C900F3CAD9 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4491AF523A3D8C900F3CAD9 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4491AFA23A3D8C900F3CAD9 /* SMARTMarkers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4491AF623A3D8C900F3CAD9 /* SMARTMarkers.framework */; };
+		D4491AFB23A3D8C900F3CAD9 /* SMARTMarkers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4491AF623A3D8C900F3CAD9 /* SMARTMarkers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4491AFC23A3D8C900F3CAD9 /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4491AF723A3D8C900F3CAD9 /* SMART.framework */; };
+		D4491AFD23A3D8C900F3CAD9 /* SMART.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4491AF723A3D8C900F3CAD9 /* SMART.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4491B0123A3DAFD00F3CAD9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4491B0023A3DAFD00F3CAD9 /* HealthKit.framework */; };
+		D4491B0523A3F5DE00F3CAD9 /* LabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4491B0423A3F5DE00F3CAD9 /* LabCell.swift */; };
 		D484F90323A2E975001A1284 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484F90223A2E975001A1284 /* AppDelegate.swift */; };
 		D484F90523A2E975001A1284 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484F90423A2E975001A1284 /* SceneDelegate.swift */; };
 		D484F90723A2E975001A1284 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484F90623A2E975001A1284 /* MasterViewController.swift */; };
@@ -16,7 +24,29 @@
 		D484F91123A2E97A001A1284 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D484F90F23A2E97A001A1284 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D4491AFE23A3D8C900F3CAD9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D4491AFB23A3D8C900F3CAD9 /* SMARTMarkers.framework in Embed Frameworks */,
+				D4491AF923A3D8C900F3CAD9 /* ResearchKit.framework in Embed Frameworks */,
+				D4491AFD23A3D8C900F3CAD9 /* SMART.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D4491AF523A3D8C900F3CAD9 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4491AF623A3D8C900F3CAD9 /* SMARTMarkers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMARTMarkers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4491AF723A3D8C900F3CAD9 /* SMART.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMART.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4491AFF23A3DAFC00F3CAD9 /* Concord.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Concord.entitlements; sourceTree = "<group>"; };
+		D4491B0023A3DAFD00F3CAD9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		D4491B0423A3F5DE00F3CAD9 /* LabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabCell.swift; sourceTree = "<group>"; };
 		D484F8FF23A2E975001A1284 /* Concord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D484F90223A2E975001A1284 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D484F90423A2E975001A1284 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +63,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4491AFA23A3D8C900F3CAD9 /* SMARTMarkers.framework in Frameworks */,
+				D4491B0123A3DAFD00F3CAD9 /* HealthKit.framework in Frameworks */,
+				D4491AF823A3D8C900F3CAD9 /* ResearchKit.framework in Frameworks */,
+				D4491AFC23A3D8C900F3CAD9 /* SMART.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4491AF423A3D8C900F3CAD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4491B0023A3DAFD00F3CAD9 /* HealthKit.framework */,
+				D4491AF523A3D8C900F3CAD9 /* ResearchKit.framework */,
+				D4491AF623A3D8C900F3CAD9 /* SMARTMarkers.framework */,
+				D4491AF723A3D8C900F3CAD9 /* SMART.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D484F8F623A2E975001A1284 = {
 			isa = PBXGroup;
 			children = (
 				D484F90123A2E975001A1284 /* Concord */,
 				D484F90023A2E975001A1284 /* Products */,
+				D4491AF423A3D8C900F3CAD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +104,9 @@
 		D484F90123A2E975001A1284 /* Concord */ = {
 			isa = PBXGroup;
 			children = (
+				D4491AFF23A3DAFC00F3CAD9 /* Concord.entitlements */,
 				D484F90223A2E975001A1284 /* AppDelegate.swift */,
+				D4491B0423A3F5DE00F3CAD9 /* LabCell.swift */,
 				D484F90423A2E975001A1284 /* SceneDelegate.swift */,
 				D484F90623A2E975001A1284 /* MasterViewController.swift */,
 				D484F90823A2E975001A1284 /* DetailViewController.swift */,
@@ -80,6 +128,7 @@
 				D484F8FB23A2E975001A1284 /* Sources */,
 				D484F8FC23A2E975001A1284 /* Frameworks */,
 				D484F8FD23A2E975001A1284 /* Resources */,
+				D4491AFE23A3D8C900F3CAD9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D484F90323A2E975001A1284 /* AppDelegate.swift in Sources */,
+				D4491B0523A3F5DE00F3CAD9 /* LabCell.swift in Sources */,
 				D484F90523A2E975001A1284 /* SceneDelegate.swift in Sources */,
 				D484F90723A2E975001A1284 /* MasterViewController.swift in Sources */,
 				D484F90923A2E975001A1284 /* DetailViewController.swift in Sources */,
@@ -288,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Concord/Concord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
 				INFOPLIST_FILE = Concord/Info.plist;
@@ -298,7 +349,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.chip..Concord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Concord/Concord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
 				INFOPLIST_FILE = Concord/Info.plist;
@@ -316,7 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.chip..Concord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
