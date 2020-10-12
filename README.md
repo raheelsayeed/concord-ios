@@ -10,7 +10,7 @@ Most EHR data today is in FHIR 1.0, SMART Markers framework transforms this data
 
 ### 1. Dependencies
 
-- [Add SMARTMarkeras][sm-install] to the build directory with its submodules
+- [Add SMARTMarkers][sm-install] to the build directory with its submodules
 - __Make sure these files are the project directory in Xcode__
     1. `ResearchKit.xcodeproj`
     2. `SMARTMarkers.xcodeproj`
