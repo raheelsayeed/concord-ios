@@ -8,21 +8,21 @@ Most EHR data today is in FHIR 1.0, SMART Markers framework transforms this data
 
 `git clone --recursive https://github.com/raheelsayeed/concord-ios`
 
-### dependencies
+### 1. Dependencies
 
 - [Add SMARTMarkeras][sm-install] to the build directory with its submodules
-- Make these files are the project directory
+- __Make sure these files are the project directory in Xcode__
     1. `ResearchKit.xcodeproj`
     2. `SMARTMarkers.xcodeproj`
     3. `SwiftSMART.xcodeproj`
 - Compile all the above submodule builds against the target device (iPhone in this case) 
 
-### Configuring the iOS Simulator to add sample FHIR data in its Health App
+### 2. Configuring the iOS Simulator to add sample FHIR data in its Health App
 
 - Follow instructions [here](https://developer.apple.com/documentation/healthkit/samples/accessing_sample_data_in_the_simulator)
 - All data is fake, synthetic, provided by Apple
 
-### Build and Run Concord!
+### 3. Build and Run Concord!
 
 ### [more sample apps][samples]
 
