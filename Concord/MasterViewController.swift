@@ -21,9 +21,9 @@ class MasterViewController: UITableViewController {
     var codes: [String]?
     var patient: Patient? {
         didSet {
-            DispatchQueue.main.async {
-                self.btnPatientSelector?.title = self.patient?.humanName ?? "Select Patient"
-            }
+//            DispatchQueue.main.async {
+//                self.btnPatientSelector?.title = self.patient?.humanName ?? "Select Patient"
+//            }
         }
     }
     
@@ -31,16 +31,31 @@ class MasterViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+
         
-        Patient.read("b85d7e00-3690-4e2a-87a0-f3d2dfc908b3", server: Server.Demo()) { [weak self] (p, e) in
-            self?.patient = (p as? Patient)
-        }
+//        Patient.read("b85d7e00-3690-4e2a-87a0-f3d2dfc908b3", server: Server.Demo()) { [weak self] (p, e) in
+//            self?.patient = (p as? Patient)
+//        }
         
-        btnPatientSelector = UIBarButtonItem(title: "Select Patient", style: .plain, target: self, action: #selector(selectPatient(_:)))
+        btnPatientSelector = UIBarButtonItem(title: "PPMG #\(appVersionString)", style: .plain, target: self, action: nil)
+		
         navigationItem.leftBarButtonItem = btnPatientSelector
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(fetchHealthRecords(_:)))
+		
+		toolbarItems = [
+			UIBarButtonItem(title: "Github", style: .plain, target: self, action: #selector(openLink(_:)))
+		]
 
+	}
+	
+	@objc func openLink(_ sender: Any?) {
+		UIApplication.shared.openURL(URL(string: "https://github.com/raheelsayeed/concord-ios")!)
+	}
+	@objc func openReleaseNotes(_ sender: Any?) {
+		UI
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -96,6 +111,21 @@ class MasterViewController: UITableViewController {
             return (.lightGray, .gray)
         }
     }
+	
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		if let listView = (segue.destination as? UINavigationController)?.topViewController as? LabsTableViewController {
+			listView.reports = healthRecords![tableView.indexPathForSelectedRow!.item]
+		}
+		
+		super.prepare(for: segue, sender: sender)
+		
+		
+		
+		
+		
+	}
 
     
 	
@@ -130,7 +160,7 @@ extension MasterViewController {
     
     @objc func fetchHealthRecords(_ sender: Any?) {
         
-        let instrument = Instruments.HealthKit.HealthRecords.instance
+		let instrument = Instruments.HealthKit.HealthRecords.instance
         
         taskController = TaskController(instrument: instrument)
         
@@ -142,20 +172,23 @@ extension MasterViewController {
         
         taskController?.onTaskCompletion = { [unowned self] submissionBundle, error in
             
-            let fhir_reports = submissionBundle?.bundle.entry?.map({ (bundleEntry) -> Report in
-                return bundleEntry.resource as! Report
-            })
-            
-            let arranged = fhir_reports?.reduce(into: [:]) { dict, report in
-                dict[report.rp_code!.code!.string, default: [Report]()].append(report)
-            }
-            
-            self.healthRecords = Array(arranged!.values)
-            
+			// Only get the lab resources:
+			
+			if let fhir_reports = submissionBundle?.bundle.entry?.filter({ $0.resource is Observation})
+				.map({ $0.resource as! Report })
+			{
+				
+				let arranged = fhir_reports.reduce(into: [:]) { dict, report in
+					dict[report.rp_code!.code!.string, default: [Report]()].append(report)
+				}
+				self.healthRecords = Array(arranged.values)
+			}
+			
+
+			
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
         }
     }
 }
