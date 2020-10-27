@@ -1,6 +1,6 @@
 # Release Notes
 
-### Buld 0.1
+### v0.1 Build 27
 
 - Demonstration of fetching FHIR based Health Records from iOS Health App
 - Can fetch multiple data types: including Conditions, Observations, Medications, immunizations, Lab Tests
