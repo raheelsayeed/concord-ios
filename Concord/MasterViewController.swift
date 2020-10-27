@@ -10,6 +10,7 @@ import UIKit
 import SMARTMarkers
 import SMART
 import ResearchKit
+import SafariServices
 
 class MasterViewController: UITableViewController {
 
@@ -21,9 +22,7 @@ class MasterViewController: UITableViewController {
     var codes: [String]?
     var patient: Patient? {
         didSet {
-//            DispatchQueue.main.async {
-//                self.btnPatientSelector?.title = self.patient?.humanName ?? "Select Patient"
-//            }
+
         }
     }
     
@@ -32,30 +31,30 @@ class MasterViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+		let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
 
-        
-//        Patient.read("b85d7e00-3690-4e2a-87a0-f3d2dfc908b3", server: Server.Demo()) { [weak self] (p, e) in
-//            self?.patient = (p as? Patient)
-//        }
-        
-        btnPatientSelector = UIBarButtonItem(title: "PPMG #\(appVersionString)", style: .plain, target: self, action: nil)
+		btnPatientSelector = UIBarButtonItem(title: "PPMG #\(appVersionString)", style: .plain, target: self, action: #selector(openReleaseNotes(_:)))
 		
-        navigationItem.leftBarButtonItem = btnPatientSelector
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(fetchHealthRecords(_:)))
+
+		
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Import HealthRecords", style: .plain, target: self, action: #selector(fetchHealthRecords(_:)))
 		
 		toolbarItems = [
+			btnPatientSelector!,
 			UIBarButtonItem(title: "Github", style: .plain, target: self, action: #selector(openLink(_:)))
 		]
 
 	}
 	
 	@objc func openLink(_ sender: Any?) {
-		UIApplication.shared.openURL(URL(string: "https://github.com/raheelsayeed/concord-ios")!)
+		let view = SFSafariViewController(url: URL(string: "https://github.com/raheelsayeed/concord-ios")!)
+		present(view, animated: true, completion: nil)
 	}
+	
 	@objc func openReleaseNotes(_ sender: Any?) {
-		UI
+		let view = SFSafariViewController(url: URL(string: "https://github.com/raheelsayeed/concord-ios/blob/master/ReleaseNotes.md")!)
+		present(view, animated: true, completion: nil)
+
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -121,10 +120,6 @@ class MasterViewController: UITableViewController {
 		
 		super.prepare(for: segue, sender: sender)
 		
-		
-		
-		
-		
 	}
 
     
@@ -134,29 +129,11 @@ class MasterViewController: UITableViewController {
 
 }
 
-extension SMART.Server {
-    
-    class func Demo() -> Server {
-        let srv = Server(baseURL: URL(string: "https://r4.smarthealthit.org/")!)
-        srv.name = "SMART Health IT"
-        return srv
-    }
-}
+
 
 // Patient Selection
 
 extension MasterViewController {
-    
-    @objc func selectPatient(_ sender: Any?) {
-        
-        let patientSelect = PatientListAll()
-        let patientSelectView = PatientListViewController(list: patientSelect, server: Server.Demo())
-        patientSelectView.onPatientSelect = { (patient) in
-            self.patient = patient
-        }
-        self.present(patientSelectView, animated: true, completion: nil)
-        
-    }
     
     @objc func fetchHealthRecords(_ sender: Any?) {
         

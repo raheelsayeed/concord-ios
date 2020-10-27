@@ -17,15 +17,31 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Notice: Camera is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
 	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
 	<string>Notice: This is a prototype app for testing purposes only (non production). Harvard-DBMI uses the Health Records to provide you graphical insights for educational purposes only.</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>Notice: All data resides on your device. No data is shared with us or any other third-party.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Notice: All data resides on your device. No data is shared with us or any other third-party.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Notice: Location is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Notice: Location is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Notice: Location is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Notice: Location is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Notice: Microphone is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Notice: Motion is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Notice: Speech is not used at any given time in this app. This notice only serves to satisfy ResearchKit modules</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

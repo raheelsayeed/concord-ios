@@ -166,10 +166,8 @@ TW9zdCBSZWNlbnQQOiAxMiBtZy9kTA
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Github: /concord-ios" id="NWx-o8-wig"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Health Records" id="Zdf-7t-Un8"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Labs" id="Zdf-7t-Un8"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
