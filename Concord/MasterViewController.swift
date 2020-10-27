@@ -84,7 +84,7 @@ class MasterViewController: UITableViewController {
         let chartPoints = records.map { Double($0.rp_observation!)! }
 
         cell.graphView.title = title
-        cell.graphView.subtitle = "Most Recent: \(recent.rp_observation!) | Code: LOINC \(recent.rp_code!.code!.string)"
+        cell.graphView.subtitle = "Most Recent: \(recent.rp_observation!) | Code: LOINC \(recent.rp_code?.code?.string ?? "$")"
         let (start, end) = colors(for: indexPath.row)
         cell.graphView.startColor = start
         cell.graphView.endColor = end
@@ -154,6 +154,7 @@ extension MasterViewController {
 			if let fhir_reports = submissionBundle?.bundle.entry?.filter({ $0.resource is Observation})
 				.map({ $0.resource as! Report })
 			{
+				
 				
 				let arranged = fhir_reports.reduce(into: [:]) { dict, report in
 					dict[report.rp_code!.code!.string, default: [Report]()].append(report)

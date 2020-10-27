@@ -39,6 +39,8 @@
 		D4880EF725472208006AF019 /* SMART.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4491AF723A3D8C900F3CAD9 /* SMART.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D4880F0625473871006AF019 /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F0525473871006AF019 /* LabsTableViewController.swift */; };
 		D4880F0725473871006AF019 /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F0525473871006AF019 /* LabsTableViewController.swift */; };
+		D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
+		D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +146,7 @@
 		D4880EFB25472208006AF019 /* PPMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4880F042547220A006AF019 /* Concord copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Concord copy-Info.plist"; path = "/Users/raheelsayeed/CHIP/swift/concord-ios/Concord copy-Info.plist"; sourceTree = "<absolute>"; };
 		D4880F0525473871006AF019 /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsTableViewController.swift; sourceTree = "<group>"; };
+		D4880F20254872D4006AF019 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,7 @@
 				D484F90F23A2E97A001A1284 /* LaunchScreen.storyboard */,
 				D484F91223A2E97A001A1284 /* Info.plist */,
 				D4880F0525473871006AF019 /* LabsTableViewController.swift */,
+				D4880F20254872D4006AF019 /* IndexViewController.swift */,
 			);
 			path = Concord;
 			sourceTree = "<group>";
@@ -423,6 +427,7 @@
 				D4491B0523A3F5DE00F3CAD9 /* LabCell.swift in Sources */,
 				D484F90523A2E975001A1284 /* SceneDelegate.swift in Sources */,
 				D484F90723A2E975001A1284 /* MasterViewController.swift in Sources */,
+				D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */,
 				D484F90923A2E975001A1284 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +441,7 @@
 				D4880EE725472208006AF019 /* LabCell.swift in Sources */,
 				D4880EE825472208006AF019 /* SceneDelegate.swift in Sources */,
 				D4880EE925472208006AF019 /* MasterViewController.swift in Sources */,
+				D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */,
 				D4880EEA25472208006AF019 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,7 +626,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Concord/Concord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
 				INFOPLIST_FILE = "Concord copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -641,7 +647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Concord/Concord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
 				INFOPLIST_FILE = "Concord copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
