@@ -4,6 +4,8 @@ Prototype app that uses [SMARTMarkers][sm] and its dependencies to aggregate FHI
 
 Most EHR data today is in FHIR 1.0, SMART Markers framework transforms this data to FHIR R4 for submission to a provided Endpoint.
 
+# Release Notes [here](ReleaseNotes.md)
+
 # Installation
 
 `git clone --recursive https://github.com/raheelsayeed/concord-ios`
