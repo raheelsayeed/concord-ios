@@ -14,49 +14,8 @@ import SafariServices
 
 class MasterViewController: UITableViewController {
 
-    var taskController: TaskController?
-    var sessionController: SessionController?
-    var instruments = [Instrument]()
-    var btnPatientSelector: UIBarButtonItem?
     var healthRecords: [[Report]]?
-    var codes: [String]?
-    var patient: Patient? {
-        didSet {
-
-        }
-    }
     
-
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-		let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-
-		btnPatientSelector = UIBarButtonItem(title: "PPMG #\(appVersionString)", style: .plain, target: self, action: #selector(openReleaseNotes(_:)))
-		
-
-		
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Import HealthRecords", style: .plain, target: self, action: #selector(fetchHealthRecords(_:)))
-		
-		toolbarItems = [
-			btnPatientSelector!,
-			UIBarButtonItem(title: "Github", style: .plain, target: self, action: #selector(openLink(_:)))
-		]
-
-	}
-	
-	@objc func openLink(_ sender: Any?) {
-		let view = SFSafariViewController(url: URL(string: "https://github.com/raheelsayeed/concord-ios")!)
-		present(view, animated: true, completion: nil)
-	}
-	
-	@objc func openReleaseNotes(_ sender: Any?) {
-		let view = SFSafariViewController(url: URL(string: "https://github.com/raheelsayeed/concord-ios/blob/master/ReleaseNotes.md")!)
-		present(view, animated: true, completion: nil)
-
-	}
-
 	override func viewWillAppear(_ animated: Bool) {
 		clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
 		super.viewWillAppear(animated)
@@ -122,51 +81,4 @@ class MasterViewController: UITableViewController {
 		
 	}
 
-    
-	
-    
-
-
-}
-
-
-
-// Patient Selection
-
-extension MasterViewController {
-    
-    @objc func fetchHealthRecords(_ sender: Any?) {
-        
-		let instrument = Instruments.HealthKit.HealthRecords.instance
-        
-        taskController = TaskController(instrument: instrument)
-        
-        taskController?.prepareSession(callback: { (task, error) in
-            if let controller = task {
-                self.present(controller, animated: true, completion: nil)
-            }
-        })
-        
-        taskController?.onTaskCompletion = { [unowned self] submissionBundle, error in
-            
-			// Only get the lab resources:
-			
-			if let fhir_reports = submissionBundle?.bundle.entry?.filter({ $0.resource is Observation})
-				.map({ $0.resource as! Report })
-			{
-				
-				
-				let arranged = fhir_reports.reduce(into: [:]) { dict, report in
-					dict[report.rp_code!.code!.string, default: [Report]()].append(report)
-				}
-				self.healthRecords = Array(arranged.values)
-			}
-			
-
-			
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
 }

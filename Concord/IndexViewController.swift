@@ -32,15 +32,19 @@ class IndexViewController: UITableViewController {
 		let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
 
 		let app = UIBarButtonItem(title: "PPMG #\(appVersionString)", style: .plain, target: self, action: #selector(openReleaseNotes(_:)))
-		
 
 		
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Import HealthRecords", style: .plain, target: self, action: #selector(fetchHealthRecords(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Import", style: .plain, target: self, action: #selector(fetchHealthRecords(_:)))
+		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Visuals", style: .plain, target: self, action: #selector(showGraphs(_:)))
+		
 		
 		toolbarItems = [
 			app,
 			UIBarButtonItem(title: "Github", style: .plain, target: self, action: #selector(openLink(_:)))
 		]
+		
+		
 
     }
 
@@ -69,9 +73,17 @@ class IndexViewController: UITableViewController {
 		self.present(viewer, animated: true, completion: nil)
 
 	}
-    
-
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		if let listView = segue.destination as? MasterViewController {
+			if let records = self.records {
+				listView.healthRecords = sortRecords(records)
+			}
+		}
+		
+	}
+
 }
 
 
@@ -125,5 +137,26 @@ extension IndexViewController {
 		present(view, animated: true, completion: nil)
 
 	}
-
+	
+	
+	
+	@objc func showGraphs(_ sender: Any?) {
+		
+		performSegue(withIdentifier: "showGraphs", sender: sender)
+		
+	}
+	
+	
+	func sortRecords(_ _records: [Report]) -> [[Report]]? {
+		
+		let filtered = _records.filter({ $0.rp_code != nil})
+		
+		guard filtered.count > 0 else { return nil }
+	
+		let arranged = filtered.reduce(into: [:]) { dict, report in
+			dict[report.rp_code!.code!.string, default: [Report]()].append(report)
+		}
+		
+		return Array(arranged.values)
+	}
 }

@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="VPb-D7-ebL" kind="relationship" relationship="rootViewController" id="kxQ-Lr-XL8"/>
+                        <segue destination="VPb-D7-ebL" kind="relationship" relationship="rootViewController" id="4Bw-uE-5wO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
@@ -44,7 +44,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="351" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Soz-qz-15P">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Soz-qz-15P">
                                             <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -67,7 +67,13 @@
                             <outlet property="delegate" destination="VPb-D7-ebL" id="o4C-sF-Bwc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Labs" id="N8z-hG-hwU"/>
+                    <navigationItem key="navigationItem" title="Labs" id="N8z-hG-hwU">
+                        <barButtonItem key="leftBarButtonItem" title="Visuals" id="aLW-G6-BAr">
+                            <connections>
+                                <segue destination="7bK-jq-Zjz" kind="show" identifier="showGraphs" id="LQ9-Xy-gw9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBv-c8-FDm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
