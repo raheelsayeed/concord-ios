@@ -149,7 +149,7 @@ extension IndexViewController {
 	
 	func sortRecords(_ _records: [Report]) -> [[Report]]? {
 		
-		let filtered = _records.filter({ $0.rp_code != nil})
+        let filtered = _records.filter({ $0.rp_code != nil && Double($0.rp_observation ?? "") != nil })
 		
 		guard filtered.count > 0 else { return nil }
 	

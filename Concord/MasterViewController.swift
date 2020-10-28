@@ -17,6 +17,7 @@ class MasterViewController: UITableViewController {
     var healthRecords: [[Report]]?
     
 	override func viewWillAppear(_ animated: Bool) {
+        self.title = "Charts"
 		clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
 		super.viewWillAppear(animated)
 	}
@@ -43,7 +44,7 @@ class MasterViewController: UITableViewController {
         let chartPoints = records.map { Double($0.rp_observation!)! }
 
         cell.graphView.title = title
-        cell.graphView.subtitle = "Most Recent: \(recent.rp_observation!) | Code: LOINC \(recent.rp_code?.code?.string ?? "$")"
+        cell.graphView.subtitle = "Code: \(recent.rp_code?.system?.absoluteString ?? "$") : \(recent.rp_code?.code?.string ?? "$") | Recent: \(recent.rp_observation!)"
         let (start, end) = colors(for: indexPath.row)
         cell.graphView.startColor = start
         cell.graphView.endColor = end
@@ -66,7 +67,7 @@ class MasterViewController: UITableViewController {
             return (UIColor(red:1.00, green:0.25, blue:0.42, alpha:1.0), UIColor(red:1.00, green:0.29, blue:0.17, alpha:1.0))
 
         default:
-            return (.lightGray, .gray)
+            return (UIColor(red: 1, green:  0.493272, blue: 0.473998, alpha: 1), UIColor(red: 1, green:  0.57810, blue: 0, alpha: 1))
         }
     }
 	
