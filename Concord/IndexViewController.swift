@@ -149,7 +149,18 @@ extension IndexViewController {
 	
 	func sortRecords(_ _records: [Report]) -> [[Report]]? {
 		
-        let filtered = _records.filter({ $0.rp_code != nil && Double($0.rp_observation ?? "") != nil })
+		/*
+		Group the FHIR Observation resources as per their identifiers for charting
+		
+		*/
+        let filtered = _records.filter({
+			
+			// Identifier is the `code` found; the top item in the array
+			$0.rp_code != nil
+				&&
+				// Observation Value should be convertible to a `Double`
+				Double($0.rp_observation ?? "") != nil
+		})
 		
 		guard filtered.count > 0 else { return nil }
 	
