@@ -12,6 +12,8 @@ import SMART
 import ResearchKit
 import SafariServices
 
+
+
 class MasterViewController: UITableViewController {
 
     var healthRecords: [[Report]]?

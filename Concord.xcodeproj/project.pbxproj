@@ -41,6 +41,7 @@
 		D4880F0725473871006AF019 /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F0525473871006AF019 /* LabsTableViewController.swift */; };
 		D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
 		D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
+		FAAE8C3225509EC500DCBC6E /* CLIPSsource in Resources */ = {isa = PBXBuildFile; fileRef = FAAE8C2925509EC500DCBC6E /* CLIPSsource */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,8 @@
 		D4880F042547220A006AF019 /* Concord copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Concord copy-Info.plist"; path = "/Users/raheelsayeed/CHIP/swift/concord-ios/Concord copy-Info.plist"; sourceTree = "<absolute>"; };
 		D4880F0525473871006AF019 /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsTableViewController.swift; sourceTree = "<group>"; };
 		D4880F20254872D4006AF019 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		FAAE8C2925509EC500DCBC6E /* CLIPSsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CLIPSsource; sourceTree = "<group>"; };
+		FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLIPS-bridging-header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +242,7 @@
 		D484F90123A2E975001A1284 /* Concord */ = {
 			isa = PBXGroup;
 			children = (
+				FAAE8C2925509EC500DCBC6E /* CLIPSsource */,
 				D4491AFF23A3DAFC00F3CAD9 /* Concord.entitlements */,
 				D484F90223A2E975001A1284 /* AppDelegate.swift */,
 				D4491B0423A3F5DE00F3CAD9 /* LabCell.swift */,
@@ -251,6 +255,7 @@
 				D484F91223A2E97A001A1284 /* Info.plist */,
 				D4880F0525473871006AF019 /* LabsTableViewController.swift */,
 				D4880F20254872D4006AF019 /* IndexViewController.swift */,
+				FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */,
 			);
 			path = Concord;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				D484F91123A2E97A001A1284 /* LaunchScreen.storyboard in Resources */,
 				D484F90E23A2E97A001A1284 /* Assets.xcassets in Resources */,
 				D484F90C23A2E975001A1284 /* Main.storyboard in Resources */,
+				FAAE8C3225509EC500DCBC6E /* CLIPSsource in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +530,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Concord/CLIPS-bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -577,6 +584,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Concord/CLIPS-bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

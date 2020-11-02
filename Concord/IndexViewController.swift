@@ -88,7 +88,6 @@ class IndexViewController: UITableViewController {
 
 
 
-
 extension IndexViewController {
     
     @objc func fetchHealthRecords(_ sender: Any?) {
@@ -110,8 +109,20 @@ extension IndexViewController {
 			if let fhir_reports = submissionBundle?.bundle.entry?.filter({ $0.resource is Observation})
 				.map({ $0.resource as! Report })
 			{
-				
+				// This is where the fhir records live
 				self.records = fhir_reports
+                
+                // DEBUG PRINT to console
+                print("***********************************")
+                print(self.records?.count)
+                print(type(of: self.records))
+                print("***********************************")
+                print(self.records?[0])
+                print("***********************************")
+                print(self.records?[1].rp_observation)
+                print(self.records?[1].rp_date)
+                print(type(of: self.records?[1].rp_observation))
+                
 
 			}
 			else {
