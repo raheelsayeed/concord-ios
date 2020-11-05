@@ -21,7 +21,7 @@ class IndexViewController: UITableViewController {
     var sessionController: SessionController?
     var instruments = [Instrument]()
 	var records: [Report]?
-    var CLIPSenv = CreateEnvironment()
+
     
 	
 	
@@ -126,15 +126,53 @@ extension IndexViewController {
                 
                 // DEBUG PRINT to console
                 print("***********************************")
-                //print(self.records?.count)
-                //print(type(of: self.records))
-                print("***********************************")
-                //print(self.records?[0])
-                print("***********************************")
-                //print(self.records?[1].rp_observation)
-                //print(self.records?[1].rp_date)
-                //print(type(of: self.records?[1].rp_observation))
-                //clipsEnv = CreateEnvironment()
+                print("type")
+                print(self.records?[3].rp_resourceType)
+                print("identifier")
+                print(self.records?[3].rp_identifier)
+                print("title")
+                print(self.records?[3].rp_title)
+                print("code")
+                print(self.records?[3].rp_code?.code?.string)
+                print(type(of: self.records?[3].rp_code?.code?.string))
+                print("description")
+                print(self.records?[3].rp_description)
+                print("date")
+                print(self.records?[3].rp_date)
+                print("observation")
+                print(self.records?[3].rp_observation)
+                
+                // DEFINE PARAMS
+                var HIGH_COL: Bool = false
+                var DIABETES_MELLITUS: Bool = false
+                
+                // CHECK CHOLESTEROL LEVELS (good - works)
+                self.records?.forEach{
+                    //Check FHIR String code
+                    if $0.rp_code?.code?.string == "2089-1" {
+                        // If LDL greater than 190 -> HIGH_COL = true
+                        if ($0.rp_observation as NSString?)?.floatValue ?? 130.0 >= 190.0 {
+                            HIGH_COL = true
+                        }
+                    }
+                }
+                print (HIGH_COL)
+                
+                //CHECK DIABETESE
+                
+                //CHECK BLOOD GLUCOSE
+                self.records?.forEach{
+                    //Double check string codes here - make sure to catch
+                    if $0.rp_code?.code?.string == "2339-0"{
+                        // If blood glucose greater than 130 -> DIABETES_MELLITUS= true
+                        if ($0.rp_observation as NSString?)?.floatValue ?? 100.0 >= 130.0 {
+                            DIABETES_MELLITUS = true
+                        }
+                    }
+                }
+                
+                
+                
                 
 
 			}
@@ -148,7 +186,6 @@ extension IndexViewController {
             }
         }
     }
-	
 	
 	
 	@objc func openLink(_ sender: Any?) {

@@ -41,6 +41,9 @@
 		D4880F0725473871006AF019 /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F0525473871006AF019 /* LabsTableViewController.swift */; };
 		D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
 		D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
+		FAAA9AE52553202700279138 /* CLIPSsource in Resources */ = {isa = PBXBuildFile; fileRef = FAAE8C2925509EC500DCBC6E /* CLIPSsource */; };
+		FAAA9AF6255321C500279138 /* CLIPSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAA9AF5255321C500279138 /* CLIPSiOS.framework */; };
+		FAAA9AF7255321C500279138 /* CLIPSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAA9AF5255321C500279138 /* CLIPSiOS.framework */; };
 		FAAE8C3225509EC500DCBC6E /* CLIPSsource in Resources */ = {isa = PBXBuildFile; fileRef = FAAE8C2925509EC500DCBC6E /* CLIPSsource */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +151,7 @@
 		D4880F042547220A006AF019 /* Concord copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Concord copy-Info.plist"; path = "/Users/raheelsayeed/CHIP/swift/concord-ios/Concord copy-Info.plist"; sourceTree = "<absolute>"; };
 		D4880F0525473871006AF019 /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsTableViewController.swift; sourceTree = "<group>"; };
 		D4880F20254872D4006AF019 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		FAAA9AF5255321C500279138 /* CLIPSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CLIPSiOS.framework; sourceTree = "<group>"; };
 		FAAE8C2925509EC500DCBC6E /* CLIPSsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CLIPSsource; sourceTree = "<group>"; };
 		FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLIPS-bridging-header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4491AFA23A3D8C900F3CAD9 /* SMARTMarkers.framework in Frameworks */,
+				FAAA9AF6255321C500279138 /* CLIPSiOS.framework in Frameworks */,
 				D4491B0123A3DAFD00F3CAD9 /* HealthKit.framework in Frameworks */,
 				D4491AF823A3D8C900F3CAD9 /* ResearchKit.framework in Frameworks */,
 				D4491AFC23A3D8C900F3CAD9 /* SMART.framework in Frameworks */,
@@ -169,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4880EEC25472208006AF019 /* SMARTMarkers.framework in Frameworks */,
+				FAAA9AF7255321C500279138 /* CLIPSiOS.framework in Frameworks */,
 				D4880EED25472208006AF019 /* HealthKit.framework in Frameworks */,
 				D4880EEE25472208006AF019 /* ResearchKit.framework in Frameworks */,
 				D4880EEF25472208006AF019 /* SMART.framework in Frameworks */,
@@ -242,6 +248,7 @@
 		D484F90123A2E975001A1284 /* Concord */ = {
 			isa = PBXGroup;
 			children = (
+				FAAA9AF5255321C500279138 /* CLIPSiOS.framework */,
 				FAAE8C2925509EC500DCBC6E /* CLIPSsource */,
 				D4491AFF23A3DAFC00F3CAD9 /* Concord.entitlements */,
 				D484F90223A2E975001A1284 /* AppDelegate.swift */,
@@ -418,6 +425,7 @@
 				D4880EF125472208006AF019 /* LaunchScreen.storyboard in Resources */,
 				D4880EF225472208006AF019 /* Assets.xcassets in Resources */,
 				D4880EF325472208006AF019 /* Main.storyboard in Resources */,
+				FAAA9AE52553202700279138 /* CLIPSsource in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,10 +516,12 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -569,9 +579,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -597,6 +609,10 @@
 				CODE_SIGN_ENTITLEMENTS = Concord/Concord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Concord",
+				);
 				INFOPLIST_FILE = Concord/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -616,6 +632,10 @@
 				CODE_SIGN_ENTITLEMENTS = Concord/Concord.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Concord",
+				);
 				INFOPLIST_FILE = Concord/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,6 +656,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Concord",
+				);
 				INFOPLIST_FILE = "Concord copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,6 +681,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = Q4JTXWLJ7B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Concord",
+				);
 				INFOPLIST_FILE = "Concord copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
