@@ -15,7 +15,7 @@ import SafariServices
 
 
 class MasterViewController: UITableViewController {
-
+    
     var healthRecords: [[Report]]?
     
 	override func viewWillAppear(_ animated: Bool) {

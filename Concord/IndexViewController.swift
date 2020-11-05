@@ -13,12 +13,16 @@ import SMART
 import SafariServices
 
 
-class IndexViewController: UITableViewController {
 
+
+class IndexViewController: UITableViewController {
+    
     var taskController: TaskController?
     var sessionController: SessionController?
     var instruments = [Instrument]()
 	var records: [Report]?
+    var CLIPSenv = CreateEnvironment()
+    
 	
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +51,11 @@ class IndexViewController: UITableViewController {
 		
 
     }
+    
+    
+
+    
+    
 
     // MARK: - Table view data source
 
@@ -54,6 +63,8 @@ class IndexViewController: UITableViewController {
         return 1
     }
 
+
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return records?.count ?? 0
     }
@@ -106,22 +117,24 @@ extension IndexViewController {
             
 			// Only get the lab resources:
 			
-			if let fhir_reports = submissionBundle?.bundle.entry?.filter({ $0.resource is Observation})
-				.map({ $0.resource as! Report })
+            if let fhir_reports = submissionBundle?.bundle.entry?.filter({ $0.resource is Observation}).map({ $0.resource as! Report })
 			{
 				// This is where the fhir records live
 				self.records = fhir_reports
                 
+                
+                
                 // DEBUG PRINT to console
                 print("***********************************")
-                print(self.records?.count)
-                print(type(of: self.records))
+                //print(self.records?.count)
+                //print(type(of: self.records))
                 print("***********************************")
-                print(self.records?[0])
+                //print(self.records?[0])
                 print("***********************************")
-                print(self.records?[1].rp_observation)
-                print(self.records?[1].rp_date)
-                print(type(of: self.records?[1].rp_observation))
+                //print(self.records?[1].rp_observation)
+                //print(self.records?[1].rp_date)
+                //print(type(of: self.records?[1].rp_observation))
+                //clipsEnv = CreateEnvironment()
                 
 
 			}
@@ -178,7 +191,6 @@ extension IndexViewController {
 		let arranged = filtered.reduce(into: [:]) { dict, report in
 			dict[report.rp_code!.code!.string, default: [Report]()].append(report)
 		}
-		
 		return Array(arranged.values)
 	}
 }
