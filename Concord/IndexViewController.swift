@@ -21,6 +21,7 @@ class IndexViewController: UITableViewController {
     var sessionController: SessionController?
     var instruments = [Instrument]()
 	var records: [Report]?
+    var clipsEnv = CreateEnvironment()
 
     
 	
@@ -116,60 +117,44 @@ extension IndexViewController {
         taskController?.onTaskCompletion = { [unowned self] submissionBundle, error in
             
 			// Only get the lab resources:
-			
-            if let fhir_reports = submissionBundle?.bundle.entry?.filter({ $0.resource is Observation}).map({ $0.resource as! Report })
+			print(type(of: submissionBundle))
+            print(type(of: submissionBundle?.bundle))
+            print(type(of: submissionBundle?.bundle.entry))
+            print(type(of: submissionBundle?.bundle.entry?[0].resource))
+            print(submissionBundle?.bundle.entry?[0].resource)
+            
+            
+            if let fhir_reports = submissionBundle?.bundle.entry?.map({ $0.resource as! Report })
 			{
 				// This is where the fhir records live
 				self.records = fhir_reports
-                
+                //print(self.records)
                 
                 
                 // DEBUG PRINT to console
+                
                 print("***********************************")
                 print("type")
-                print(self.records?[3].rp_resourceType)
+                print(self.records?[0].rp_resourceType)
                 print("identifier")
-                print(self.records?[3].rp_identifier)
+                print(self.records?[0].rp_identifier)
                 print("title")
-                print(self.records?[3].rp_title)
+                print(self.records?[0].rp_title)
                 print("code")
-                print(self.records?[3].rp_code?.code?.string)
-                print(type(of: self.records?[3].rp_code?.code?.string))
+                print(self.records?[0].rp_code?.code?.string)
+                print(type(of: self.records?[0].rp_code?.code?.string))
                 print("description")
-                print(self.records?[3].rp_description)
+                print(self.records?[0].rp_description)
                 print("date")
-                print(self.records?[3].rp_date)
+                print(self.records?[0].rp_date)
                 print("observation")
-                print(self.records?[3].rp_observation)
+                print(self.records?[0].rp_observation)
+
                 
-                // DEFINE PARAMS
-                var HIGH_COL: Bool = false
-                var DIABETES_MELLITUS: Bool = false
-                
-                // CHECK CHOLESTEROL LEVELS (good - works)
-                self.records?.forEach{
-                    //Check FHIR String code
-                    if $0.rp_code?.code?.string == "2089-1" {
-                        // If LDL greater than 190 -> HIGH_COL = true
-                        if ($0.rp_observation as NSString?)?.floatValue ?? 130.0 >= 190.0 {
-                            HIGH_COL = true
-                        }
-                    }
-                }
-                print (HIGH_COL)
-                
-                //CHECK DIABETESE
-                
-                //CHECK BLOOD GLUCOSE
-                self.records?.forEach{
-                    //Double check string codes here - make sure to catch
-                    if $0.rp_code?.code?.string == "2339-0"{
-                        // If blood glucose greater than 130 -> DIABETES_MELLITUS= true
-                        if ($0.rp_observation as NSString?)?.floatValue ?? 100.0 >= 130.0 {
-                            DIABETES_MELLITUS = true
-                        }
-                    }
-                }
+                //Parse Reports
+                var HIGH_COL: Bool = checkHighCholesterol(records: self.records)
+                var HIGH_GLUCOSE: Bool = checkGlucoseLevels(records: self.records)
+                var DIABETES_MELLITUS: Bool = checkDiabetesMellitus(records: self.records)
                 
                 
                 

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Boston Children's Hospital. All rights reserved.
 //
 
+import SMARTMarkers
 import Foundation
 import SMART
 

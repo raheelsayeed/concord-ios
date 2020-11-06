@@ -41,6 +41,14 @@
 		D4880F0725473871006AF019 /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F0525473871006AF019 /* LabsTableViewController.swift */; };
 		D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
 		D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
+		FA805C632555A33E00B3E836 /* Condition+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C622555A33E00B3E836 /* Condition+Report.swift */; };
+		FA805C642555A33E00B3E836 /* Condition+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C622555A33E00B3E836 /* Condition+Report.swift */; };
+		FA805C662555A34000B3E836 /* Immunization+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C652555A34000B3E836 /* Immunization+Report.swift */; };
+		FA805C672555A34000B3E836 /* Immunization+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C652555A34000B3E836 /* Immunization+Report.swift */; };
+		FA805C692555A34500B3E836 /* MedicationRequest+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */; };
+		FA805C6A2555A34500B3E836 /* MedicationRequest+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */; };
+		FA805C6F2555A43000B3E836 /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C6E2555A43000B3E836 /* ParseReports.swift */; };
+		FA805C702555A43000B3E836 /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C6E2555A43000B3E836 /* ParseReports.swift */; };
 		FAAA9AE52553202700279138 /* CLIPSsource in Resources */ = {isa = PBXBuildFile; fileRef = FAAE8C2925509EC500DCBC6E /* CLIPSsource */; };
 		FAAA9AF6255321C500279138 /* CLIPSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAA9AF5255321C500279138 /* CLIPSiOS.framework */; };
 		FAAA9AF7255321C500279138 /* CLIPSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAA9AF5255321C500279138 /* CLIPSiOS.framework */; };
@@ -48,54 +56,54 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D434E8812534B344006F535F /* PBXContainerItemProxy */ = {
+		FA805C232555954100B3E836 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D434E87D2534B344006F535F /* SMARTMarkers.xcodeproj */;
+			containerPortal = FA805C1F2555954100B3E836 /* SMARTMarkers.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D4E75D5D2035E73E000CE95A;
 			remoteInfo = SMARTMarkers;
 		};
-		D434E8892534B3C5006F535F /* PBXContainerItemProxy */ = {
+		FA805C2D2555954A00B3E836 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D434E8832534B3C5006F535F /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B183A5951A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
-		D434E88B2534B3C5006F535F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D434E8832534B3C5006F535F /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
-			remoteInfo = ResearchKitTests;
-		};
-		D434E8952534B4B8006F535F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D434E88D2534B4B8006F535F /* SwiftSMART.xcodeproj */;
+			containerPortal = FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE43B1A919546D880017679A;
 			remoteInfo = "SwiftSMART-iOS";
 		};
-		D434E8972534B4B8006F535F /* PBXContainerItemProxy */ = {
+		FA805C2F2555954A00B3E836 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D434E88D2534B4B8006F535F /* SwiftSMART.xcodeproj */;
+			containerPortal = FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE43B1B319546D880017679A;
 			remoteInfo = "SwiftSMART-iOSTests";
 		};
-		D434E8992534B4B8006F535F /* PBXContainerItemProxy */ = {
+		FA805C312555954A00B3E836 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D434E88D2534B4B8006F535F /* SwiftSMART.xcodeproj */;
+			containerPortal = FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EECAA7831A5D3DE60062C64B;
 			remoteInfo = "SwiftSMART-macOS";
 		};
-		D434E89B2534B4B8006F535F /* PBXContainerItemProxy */ = {
+		FA805C332555954A00B3E836 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D434E88D2534B4B8006F535F /* SwiftSMART.xcodeproj */;
+			containerPortal = FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE13AA921A5D44D100B901FD;
 			remoteInfo = "SwiftSMART-macOSTests";
+		};
+		FA805C3F2555955700B3E836 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA805C392555955600B3E836 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		FA805C412555955700B3E836 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA805C392555955600B3E836 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -129,9 +137,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D434E87D2534B344006F535F /* SMARTMarkers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SMARTMarkers.xcodeproj; path = "smartmarkers-ios/SMARTMarkers.xcodeproj"; sourceTree = "<group>"; };
-		D434E8832534B3C5006F535F /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "smartmarkers-ios/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
-		D434E88D2534B4B8006F535F /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "smartmarkers-ios/SwiftSMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
 		D4491AF523A3D8C900F3CAD9 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4491AF623A3D8C900F3CAD9 /* SMARTMarkers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMARTMarkers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4491AF723A3D8C900F3CAD9 /* SMART.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMART.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +156,13 @@
 		D4880F042547220A006AF019 /* Concord copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Concord copy-Info.plist"; path = "/Users/raheelsayeed/CHIP/swift/concord-ios/Concord copy-Info.plist"; sourceTree = "<absolute>"; };
 		D4880F0525473871006AF019 /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsTableViewController.swift; sourceTree = "<group>"; };
 		D4880F20254872D4006AF019 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		FA805C1F2555954100B3E836 /* SMARTMarkers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SMARTMarkers.xcodeproj; path = "smartmarkers-ios/SMARTMarkers.xcodeproj"; sourceTree = "<group>"; };
+		FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "smartmarkers-ios/Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
+		FA805C392555955600B3E836 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "smartmarkers-ios/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
+		FA805C622555A33E00B3E836 /* Condition+Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Condition+Report.swift"; sourceTree = "<group>"; };
+		FA805C652555A34000B3E836 /* Immunization+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Immunization+Report.swift"; sourceTree = "<group>"; };
+		FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MedicationRequest+Report.swift"; sourceTree = "<group>"; };
+		FA805C6E2555A43000B3E836 /* ParseReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseReports.swift; sourceTree = "<group>"; };
 		FAAA9AF5255321C500279138 /* CLIPSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CLIPSiOS.framework; sourceTree = "<group>"; };
 		FAAE8C2925509EC500DCBC6E /* CLIPSsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CLIPSsource; sourceTree = "<group>"; };
 		FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLIPS-bridging-header.h"; sourceTree = "<group>"; };
@@ -184,34 +196,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D434E87E2534B344006F535F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D434E8822534B344006F535F /* SMARTMarkers.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D434E8842534B3C5006F535F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D434E88A2534B3C5006F535F /* ResearchKit.framework */,
-				D434E88C2534B3C5006F535F /* ResearchKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D434E88E2534B4B8006F535F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D434E8962534B4B8006F535F /* SMART.framework */,
-				D434E8982534B4B8006F535F /* SwiftSMART-iOSTests.xctest */,
-				D434E89A2534B4B8006F535F /* SMART.framework */,
-				D434E89C2534B4B8006F535F /* SwiftSMART-macOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D4491AF423A3D8C900F3CAD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,9 +210,9 @@
 		D484F8F623A2E975001A1284 = {
 			isa = PBXGroup;
 			children = (
-				D434E88D2534B4B8006F535F /* SwiftSMART.xcodeproj */,
-				D434E8832534B3C5006F535F /* ResearchKit.xcodeproj */,
-				D434E87D2534B344006F535F /* SMARTMarkers.xcodeproj */,
+				FA805C392555955600B3E836 /* ResearchKit.xcodeproj */,
+				FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */,
+				FA805C1F2555954100B3E836 /* SMARTMarkers.xcodeproj */,
 				D484F90123A2E975001A1284 /* Concord */,
 				D484F90023A2E975001A1284 /* Products */,
 				D4491AF423A3D8C900F3CAD9 /* Frameworks */,
@@ -250,6 +234,8 @@
 			children = (
 				FAAA9AF5255321C500279138 /* CLIPSiOS.framework */,
 				FAAE8C2925509EC500DCBC6E /* CLIPSsource */,
+				FA805C6B2555A35A00B3E836 /* ClinicalLogic */,
+				FA805C612555A31800B3E836 /* ReportExtensions */,
 				D4491AFF23A3DAFC00F3CAD9 /* Concord.entitlements */,
 				D484F90223A2E975001A1284 /* AppDelegate.swift */,
 				D4491B0423A3F5DE00F3CAD9 /* LabCell.swift */,
@@ -265,6 +251,52 @@
 				FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */,
 			);
 			path = Concord;
+			sourceTree = "<group>";
+		};
+		FA805C202555954100B3E836 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA805C242555954100B3E836 /* SMARTMarkers.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA805C272555954A00B3E836 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA805C2E2555954A00B3E836 /* SMART.framework */,
+				FA805C302555954A00B3E836 /* SwiftSMART-iOSTests.xctest */,
+				FA805C322555954A00B3E836 /* SMART.framework */,
+				FA805C342555954A00B3E836 /* SwiftSMART-macOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA805C3A2555955600B3E836 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA805C402555955700B3E836 /* ResearchKit.framework */,
+				FA805C422555955700B3E836 /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA805C612555A31800B3E836 /* ReportExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA805C622555A33E00B3E836 /* Condition+Report.swift */,
+				FA805C652555A34000B3E836 /* Immunization+Report.swift */,
+				FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */,
+			);
+			path = ReportExtensions;
+			sourceTree = "<group>";
+		};
+		FA805C6B2555A35A00B3E836 /* ClinicalLogic */ = {
+			isa = PBXGroup;
+			children = (
+				FA805C6E2555A43000B3E836 /* ParseReports.swift */,
+			);
+			path = ClinicalLogic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,16 +366,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D434E8842534B3C5006F535F /* Products */;
-					ProjectRef = D434E8832534B3C5006F535F /* ResearchKit.xcodeproj */;
+					ProductGroup = FA805C3A2555955600B3E836 /* Products */;
+					ProjectRef = FA805C392555955600B3E836 /* ResearchKit.xcodeproj */;
 				},
 				{
-					ProductGroup = D434E87E2534B344006F535F /* Products */;
-					ProjectRef = D434E87D2534B344006F535F /* SMARTMarkers.xcodeproj */;
+					ProductGroup = FA805C202555954100B3E836 /* Products */;
+					ProjectRef = FA805C1F2555954100B3E836 /* SMARTMarkers.xcodeproj */;
 				},
 				{
-					ProductGroup = D434E88E2534B4B8006F535F /* Products */;
-					ProjectRef = D434E88D2534B4B8006F535F /* SwiftSMART.xcodeproj */;
+					ProductGroup = FA805C272555954A00B3E836 /* Products */;
+					ProjectRef = FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -355,53 +387,53 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D434E8822534B344006F535F /* SMARTMarkers.framework */ = {
+		FA805C242555954100B3E836 /* SMARTMarkers.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SMARTMarkers.framework;
-			remoteRef = D434E8812534B344006F535F /* PBXContainerItemProxy */;
+			remoteRef = FA805C232555954100B3E836 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D434E88A2534B3C5006F535F /* ResearchKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ResearchKit.framework;
-			remoteRef = D434E8892534B3C5006F535F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D434E88C2534B3C5006F535F /* ResearchKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ResearchKitTests.xctest;
-			remoteRef = D434E88B2534B3C5006F535F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D434E8962534B4B8006F535F /* SMART.framework */ = {
+		FA805C2E2555954A00B3E836 /* SMART.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SMART.framework;
-			remoteRef = D434E8952534B4B8006F535F /* PBXContainerItemProxy */;
+			remoteRef = FA805C2D2555954A00B3E836 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D434E8982534B4B8006F535F /* SwiftSMART-iOSTests.xctest */ = {
+		FA805C302555954A00B3E836 /* SwiftSMART-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SwiftSMART-iOSTests.xctest";
-			remoteRef = D434E8972534B4B8006F535F /* PBXContainerItemProxy */;
+			remoteRef = FA805C2F2555954A00B3E836 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D434E89A2534B4B8006F535F /* SMART.framework */ = {
+		FA805C322555954A00B3E836 /* SMART.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SMART.framework;
-			remoteRef = D434E8992534B4B8006F535F /* PBXContainerItemProxy */;
+			remoteRef = FA805C312555954A00B3E836 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D434E89C2534B4B8006F535F /* SwiftSMART-macOSTests.xctest */ = {
+		FA805C342555954A00B3E836 /* SwiftSMART-macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SwiftSMART-macOSTests.xctest";
-			remoteRef = D434E89B2534B4B8006F535F /* PBXContainerItemProxy */;
+			remoteRef = FA805C332555954A00B3E836 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA805C402555955700B3E836 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = FA805C3F2555955700B3E836 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FA805C422555955700B3E836 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = FA805C412555955700B3E836 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -439,10 +471,14 @@
 				D484F90323A2E975001A1284 /* AppDelegate.swift in Sources */,
 				D4880F0625473871006AF019 /* LabsTableViewController.swift in Sources */,
 				D4491B0523A3F5DE00F3CAD9 /* LabCell.swift in Sources */,
+				FA805C672555A34000B3E836 /* Immunization+Report.swift in Sources */,
 				D484F90523A2E975001A1284 /* SceneDelegate.swift in Sources */,
 				D484F90723A2E975001A1284 /* MasterViewController.swift in Sources */,
 				D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */,
 				D484F90923A2E975001A1284 /* DetailViewController.swift in Sources */,
+				FA805C692555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
+				FA805C6F2555A43000B3E836 /* ParseReports.swift in Sources */,
+				FA805C632555A33E00B3E836 /* Condition+Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,10 +489,14 @@
 				D4880EE625472208006AF019 /* AppDelegate.swift in Sources */,
 				D4880F0725473871006AF019 /* LabsTableViewController.swift in Sources */,
 				D4880EE725472208006AF019 /* LabCell.swift in Sources */,
+				FA805C662555A34000B3E836 /* Immunization+Report.swift in Sources */,
 				D4880EE825472208006AF019 /* SceneDelegate.swift in Sources */,
 				D4880EE925472208006AF019 /* MasterViewController.swift in Sources */,
 				D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */,
 				D4880EEA25472208006AF019 /* DetailViewController.swift in Sources */,
+				FA805C6A2555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
+				FA805C702555A43000B3E836 /* ParseReports.swift in Sources */,
+				FA805C642555A33E00B3E836 /* Condition+Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
