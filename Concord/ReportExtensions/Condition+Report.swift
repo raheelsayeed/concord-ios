@@ -1,6 +1,6 @@
 //
 //  Condition+Report.swift
-//  SMARTMarkers
+//  Concord
 //
 //  Created by Alex Leighton on 11/6/20.
 //  Copyright © 2020 Boston Children's Hospital. All rights reserved.

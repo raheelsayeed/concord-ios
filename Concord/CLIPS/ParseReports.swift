@@ -12,6 +12,7 @@ import ResearchKit
 import SMARTMarkers
 
 
+
 func checkGlucoseLevels(records: Optional<Array<Report>>, threshold: Float = 120.0)-> Bool {
     //Returns true if Glucose levels above threshold
     var r_val: Bool = false

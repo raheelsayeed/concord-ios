@@ -149,9 +149,12 @@ extension IndexViewController {
                 print(self.records?[0].rp_date)
                 print("observation")
                 print(self.records?[0].rp_observation)
-
+                
+                
                 
                 //Parse Reports
+                //var PATIENT_AGE: Int = getPatientAge()
+                //print (PATIENT_AGE)
                 var HIGH_COL: Bool = checkHighCholesterol(records: self.records)
                 var HIGH_GLUCOSE: Bool = checkGlucoseLevels(records: self.records)
                 var DIABETES_MELLITUS: Bool = checkDiabetesMellitus(records: self.records)

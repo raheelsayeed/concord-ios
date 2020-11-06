@@ -47,12 +47,13 @@
 		FA805C672555A34000B3E836 /* Immunization+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C652555A34000B3E836 /* Immunization+Report.swift */; };
 		FA805C692555A34500B3E836 /* MedicationRequest+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */; };
 		FA805C6A2555A34500B3E836 /* MedicationRequest+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */; };
-		FA805C6F2555A43000B3E836 /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C6E2555A43000B3E836 /* ParseReports.swift */; };
-		FA805C702555A43000B3E836 /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C6E2555A43000B3E836 /* ParseReports.swift */; };
 		FAAA9AE52553202700279138 /* CLIPSsource in Resources */ = {isa = PBXBuildFile; fileRef = FAAE8C2925509EC500DCBC6E /* CLIPSsource */; };
 		FAAA9AF6255321C500279138 /* CLIPSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAA9AF5255321C500279138 /* CLIPSiOS.framework */; };
 		FAAA9AF7255321C500279138 /* CLIPSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAA9AF5255321C500279138 /* CLIPSiOS.framework */; };
 		FAAE8C3225509EC500DCBC6E /* CLIPSsource in Resources */ = {isa = PBXBuildFile; fileRef = FAAE8C2925509EC500DCBC6E /* CLIPSsource */; };
+		FAD49C492555CA6500174B9B /* PatientAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49C482555CA6500174B9B /* PatientAge.swift */; };
+		FAD49C5D2555E6AB00174B9B /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49C5C2555E6AB00174B9B /* ParseReports.swift */; };
+		FAD49C5E2555E6AB00174B9B /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49C5C2555E6AB00174B9B /* ParseReports.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,10 +163,11 @@
 		FA805C622555A33E00B3E836 /* Condition+Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Condition+Report.swift"; sourceTree = "<group>"; };
 		FA805C652555A34000B3E836 /* Immunization+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Immunization+Report.swift"; sourceTree = "<group>"; };
 		FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MedicationRequest+Report.swift"; sourceTree = "<group>"; };
-		FA805C6E2555A43000B3E836 /* ParseReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseReports.swift; sourceTree = "<group>"; };
 		FAAA9AF5255321C500279138 /* CLIPSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CLIPSiOS.framework; sourceTree = "<group>"; };
 		FAAE8C2925509EC500DCBC6E /* CLIPSsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CLIPSsource; sourceTree = "<group>"; };
 		FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLIPS-bridging-header.h"; sourceTree = "<group>"; };
+		FAD49C482555CA6500174B9B /* PatientAge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientAge.swift; sourceTree = "<group>"; };
+		FAD49C5C2555E6AB00174B9B /* ParseReports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseReports.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,10 +234,11 @@
 		D484F90123A2E975001A1284 /* Concord */ = {
 			isa = PBXGroup;
 			children = (
+				FAD49C5B2555E66B00174B9B /* CLIPS */,
 				FAAA9AF5255321C500279138 /* CLIPSiOS.framework */,
 				FAAE8C2925509EC500DCBC6E /* CLIPSsource */,
-				FA805C6B2555A35A00B3E836 /* ClinicalLogic */,
 				FA805C612555A31800B3E836 /* ReportExtensions */,
+				FAD49C3D2555CA1200174B9B /* HealthKit */,
 				D4491AFF23A3DAFC00F3CAD9 /* Concord.entitlements */,
 				D484F90223A2E975001A1284 /* AppDelegate.swift */,
 				D4491B0423A3F5DE00F3CAD9 /* LabCell.swift */,
@@ -291,12 +294,20 @@
 			path = ReportExtensions;
 			sourceTree = "<group>";
 		};
-		FA805C6B2555A35A00B3E836 /* ClinicalLogic */ = {
+		FAD49C3D2555CA1200174B9B /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
-				FA805C6E2555A43000B3E836 /* ParseReports.swift */,
+				FAD49C482555CA6500174B9B /* PatientAge.swift */,
 			);
-			path = ClinicalLogic;
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		FAD49C5B2555E66B00174B9B /* CLIPS */ = {
+			isa = PBXGroup;
+			children = (
+				FAD49C5C2555E6AB00174B9B /* ParseReports.swift */,
+			);
+			path = CLIPS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,9 +487,10 @@
 				D484F90723A2E975001A1284 /* MasterViewController.swift in Sources */,
 				D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */,
 				D484F90923A2E975001A1284 /* DetailViewController.swift in Sources */,
+				FAD49C492555CA6500174B9B /* PatientAge.swift in Sources */,
 				FA805C692555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
-				FA805C6F2555A43000B3E836 /* ParseReports.swift in Sources */,
 				FA805C632555A33E00B3E836 /* Condition+Report.swift in Sources */,
+				FAD49C5D2555E6AB00174B9B /* ParseReports.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +507,7 @@
 				D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */,
 				D4880EEA25472208006AF019 /* DetailViewController.swift in Sources */,
 				FA805C6A2555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
-				FA805C702555A43000B3E836 /* ParseReports.swift in Sources */,
+				FAD49C5E2555E6AB00174B9B /* ParseReports.swift in Sources */,
 				FA805C642555A33E00B3E836 /* Condition+Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
