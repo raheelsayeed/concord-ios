@@ -26,6 +26,7 @@ func checkGlucoseLevels(records: Optional<Array<Report>>, threshold: Float = 120
 }
 
 func checkHighCholesterol(records: Optional<Array<Report>>, threshold: Float = 190.0)-> Bool {
+    //Returns true if LDL levels above threshold
     var r_val: Bool = false
     records?.forEach{
         //Check FHIR String code
@@ -37,6 +38,7 @@ func checkHighCholesterol(records: Optional<Array<Report>>, threshold: Float = 1
 }
 
 func checkDiabetesMellitus(records: Optional<Array<Report>>) -> Bool {
+    // Returns true if patient has diabetes
     var r_val = false
     records?.forEach{
         //Code might not be accurate so check substring

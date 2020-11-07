@@ -159,6 +159,24 @@ extension IndexViewController {
                 var HIGH_GLUCOSE: Bool = checkGlucoseLevels(records: self.records)
                 var DIABETES_MELLITUS: Bool = checkDiabetesMellitus(records: self.records)
                 
+                //CLIPS example from book
+                
+                //clear environment
+                EnvClear(clipsEnv)
+                
+                //Load CLIPS code
+                let clipsFilePath = Bundle.main.path(forResource: "Test", ofType: "clp")
+                EnvLoad(clipsEnv, clipsFilePath)
+                
+                //Run CLIPS environment
+                EnvReset(clipsEnv)
+                EnvRun(clipsEnv, 20)
+                
+                
+                //Cleanup garbage
+                DestroyEnvironment(clipsEnv)
+                
+                
                 
                 
                 
