@@ -116,14 +116,6 @@ extension IndexViewController {
         
         taskController?.onTaskCompletion = { [unowned self] submissionBundle, error in
             
-			// Only get the lab resources:
-			print(type(of: submissionBundle))
-            print(type(of: submissionBundle?.bundle))
-            print(type(of: submissionBundle?.bundle.entry))
-            print(type(of: submissionBundle?.bundle.entry?[0].resource))
-            print(submissionBundle?.bundle.entry?[0].resource)
-            
-            
             if let fhir_reports = submissionBundle?.bundle.entry?.map({ $0.resource as! Report })
 			{
 				// This is where the fhir records live
@@ -131,35 +123,42 @@ extension IndexViewController {
                 //print(self.records)
                 
                 
-                // DEBUG PRINT to console
-                
-                print("***********************************")
-                print("type")
-                print(self.records?[0].rp_resourceType)
-                print("identifier")
-                print(self.records?[0].rp_identifier)
-                print("title")
-                print(self.records?[0].rp_title)
-                print("code")
-                print(self.records?[0].rp_code?.code?.string)
-                print(type(of: self.records?[0].rp_code?.code?.string))
-                print("description")
-                print(self.records?[0].rp_description)
-                print("date")
-                print(self.records?[0].rp_date)
-                print("observation")
-                print(self.records?[0].rp_observation)
                 
                 
+                //TODO: Patient age
+                let ID: String? = nil //TODO
+                let LDL = getHighestObservation(records: self.records, obsCode: "2089-1")
+                let age: Int? = nil // TODO
+                let diabetesMellitus = checkDiabetesMellitus(records: self.records)
+                let bloodGlucose = getHighestObservation(records: self.records, obsCode: "2339-0")
+
                 
-                //Parse Reports
-                //var PATIENT_AGE: Int = getPatientAge()
-                //print (PATIENT_AGE)
-                var HIGH_COL: Bool = checkHighCholesterol(records: self.records)
-                var HIGH_GLUCOSE: Bool = checkGlucoseLevels(records: self.records)
-                var DIABETES_MELLITUS: Bool = checkDiabetesMellitus(records: self.records)
+                //clear environment
+                EnvClear(clipsEnv)
+                EnvReset(clipsEnv)
                 
-                //CLIPS example from book
+                //Load CLIPS code
+
+                let clipsFilePath = Bundle.main.path(forResource: "ACC_AHA_Simplified", ofType: "clp")
+                EnvLoad(clipsEnv, clipsFilePath)
+                
+                //Load patient
+                let subject = CLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose)
+                let subject_str = subject.toCLIPSSubjectDefinition()
+                print (subject_str)
+                EnvAssertString(clipsEnv, subject_str)
+                
+                //Run CLIPS environment
+                EnvRun(clipsEnv, 20)
+                
+                
+                //Cleanup garbage
+                DestroyEnvironment(clipsEnv)
+    
+                
+                
+                /*
+                //CLIPS example from book (uncomment to run)
                 
                 //clear environment
                 EnvClear(clipsEnv)
@@ -175,7 +174,7 @@ extension IndexViewController {
                 
                 //Cleanup garbage
                 DestroyEnvironment(clipsEnv)
-                
+                */
                 
                 
                 
