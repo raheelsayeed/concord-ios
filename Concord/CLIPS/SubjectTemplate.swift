@@ -18,6 +18,7 @@ public class CLIPSSubject {
     var bloodGlucose: Float?
     
     init(ID: String?, LDL: Float?, age: Int?, diabetesMellitus: Bool?, bloodGlucose: Float?) {
+        //Fix ID (parents propably won't but might mess up clips - better safe than sorry)
         self.ID = ID
         self.LDL = LDL
         self.age = age
@@ -30,7 +31,8 @@ public class CLIPSSubject {
         //Parse patient to CLIPS subject template
         //Add future params
         var r_string: String = "(subject"
-        if self.ID != nil {r_string += " (ID " + self.ID! + " ) "}
+        //if self.ID != nil {r_string += " (ID " + self.ID! + " ) "}
+        // CLIPS code doesn't need patient ID and weird (*&^%$#@) characters could mess with functionality
         if self.LDL != nil {r_string += " (LDL " + self.LDL!.description + " ) "}
         if self.age != nil {r_string += " (age " + self.age!.description + " ) "}
         if self.diabetesMellitus != nil {if self.diabetesMellitus!{ r_string += " ( diabetes-mellitus yes ) "}} // default value is no

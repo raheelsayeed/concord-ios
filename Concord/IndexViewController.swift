@@ -105,6 +105,7 @@ extension IndexViewController {
     @objc func fetchHealthRecords(_ sender: Any?) {
         
 		let instrument = Instruments.HealthKit.HealthRecords.instance
+        //let instrument2 = Instruments.HealthKit.
         
         taskController = TaskController(instrument: instrument)
         
@@ -143,13 +144,24 @@ extension IndexViewController {
                 EnvLoad(clipsEnv, clipsFilePath)
                 
                 //Load patient
-                let subject = CLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose)
+                //let subject = CLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose)
+                //let subject_str = subject.toCLIPSSubjectDefinition()
+                
+                //Load random patient
+                let subject = RandomCLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose)
                 let subject_str = subject.toCLIPSSubjectDefinition()
+                
+                
+                
                 print (subject_str)
                 EnvAssertString(clipsEnv, subject_str)
                 
                 //Run CLIPS environment
                 EnvRun(clipsEnv, 20)
+                
+                //Check rule activation
+                
+                
                 
                 
                 //Cleanup garbage

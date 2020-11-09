@@ -41,6 +41,10 @@
 		D4880F0725473871006AF019 /* LabsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F0525473871006AF019 /* LabsTableViewController.swift */; };
 		D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
 		D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4880F20254872D4006AF019 /* IndexViewController.swift */; };
+		FA16748925598B55003B2F5B /* RulesActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16748825598B55003B2F5B /* RulesActivation.swift */; };
+		FA16748A25598B55003B2F5B /* RulesActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16748825598B55003B2F5B /* RulesActivation.swift */; };
+		FA5184C62559CADC00180D9F /* GenRandomSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5184C52559CADC00180D9F /* GenRandomSubject.swift */; };
+		FA5184C72559CADC00180D9F /* GenRandomSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5184C52559CADC00180D9F /* GenRandomSubject.swift */; };
 		FA805C632555A33E00B3E836 /* Condition+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C622555A33E00B3E836 /* Condition+Report.swift */; };
 		FA805C642555A33E00B3E836 /* Condition+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C622555A33E00B3E836 /* Condition+Report.swift */; };
 		FA805C662555A34000B3E836 /* Immunization+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA805C652555A34000B3E836 /* Immunization+Report.swift */; };
@@ -165,6 +169,8 @@
 		D4880F042547220A006AF019 /* Concord copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Concord copy-Info.plist"; path = "/Users/raheelsayeed/CHIP/swift/concord-ios/Concord copy-Info.plist"; sourceTree = "<absolute>"; };
 		D4880F0525473871006AF019 /* LabsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsTableViewController.swift; sourceTree = "<group>"; };
 		D4880F20254872D4006AF019 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		FA16748825598B55003B2F5B /* RulesActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesActivation.swift; sourceTree = "<group>"; };
+		FA5184C52559CADC00180D9F /* GenRandomSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenRandomSubject.swift; sourceTree = "<group>"; };
 		FA805C1F2555954100B3E836 /* SMARTMarkers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SMARTMarkers.xcodeproj; path = "smartmarkers-ios/SMARTMarkers.xcodeproj"; sourceTree = "<group>"; };
 		FA805C262555954A00B3E836 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "smartmarkers-ios/Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
 		FA805C392555955600B3E836 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "smartmarkers-ios/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 		D484F90123A2E975001A1284 /* Concord */ = {
 			isa = PBXGroup;
 			children = (
+				FA5184BC2559CAA200180D9F /* CLIPSTests */,
 				FAD49C5B2555E66B00174B9B /* CLIPS */,
 				FAAA9AF5255321C500279138 /* CLIPSiOS.framework */,
 				FAAE8C2925509EC500DCBC6E /* CLIPSsource */,
@@ -265,6 +272,14 @@
 				FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */,
 			);
 			path = Concord;
+			sourceTree = "<group>";
+		};
+		FA5184BC2559CAA200180D9F /* CLIPSTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA5184C52559CADC00180D9F /* GenRandomSubject.swift */,
+			);
+			path = CLIPSTests;
 			sourceTree = "<group>";
 		};
 		FA805C202555954100B3E836 /* Products */ = {
@@ -320,6 +335,7 @@
 				FA8A32D82558968100BD40A9 /* SubjectTemplate.swift */,
 				FA8A32D42557228500BD40A9 /* ACC_AHA_Simplified.clp */,
 				FA8A32D02557144500BD40A9 /* Test.clp */,
+				FA16748825598B55003B2F5B /* RulesActivation.swift */,
 			);
 			path = CLIPS;
 			sourceTree = "<group>";
@@ -496,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D484F90323A2E975001A1284 /* AppDelegate.swift in Sources */,
+				FA16748925598B55003B2F5B /* RulesActivation.swift in Sources */,
 				D4880F0625473871006AF019 /* LabsTableViewController.swift in Sources */,
 				D4491B0523A3F5DE00F3CAD9 /* LabCell.swift in Sources */,
 				FA805C672555A34000B3E836 /* Immunization+Report.swift in Sources */,
@@ -509,6 +526,7 @@
 				FA805C692555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
 				FA8A32D92558968100BD40A9 /* SubjectTemplate.swift in Sources */,
 				FA805C632555A33E00B3E836 /* Condition+Report.swift in Sources */,
+				FA5184C62559CADC00180D9F /* GenRandomSubject.swift in Sources */,
 				FAD49C5D2555E6AB00174B9B /* ParseReports.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,8 +547,10 @@
 				FA8A32D62557228500BD40A9 /* ACC_AHA_Simplified.clp in Sources */,
 				D4880EEA25472208006AF019 /* DetailViewController.swift in Sources */,
 				FA805C6A2555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
+				FA5184C72559CADC00180D9F /* GenRandomSubject.swift in Sources */,
 				FAD49C5E2555E6AB00174B9B /* ParseReports.swift in Sources */,
 				FA805C642555A33E00B3E836 /* Condition+Report.swift in Sources */,
+				FA16748A25598B55003B2F5B /* RulesActivation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
