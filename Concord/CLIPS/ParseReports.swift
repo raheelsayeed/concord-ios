@@ -54,3 +54,19 @@ func checkHighGlucoseLevels(records: Optional<Array<Report>>, threshold: Float =
         r_val = true
     }; return r_val
 }
+
+
+func checkPerscribedStatin(records: Optional<Array<Report>>) -> Bool{
+    //TODO is "lipid lowering drug" code really ok substitute for statins
+    var r_val: Bool = false
+    records?.forEach{
+        //Code might not be accurate so check substring
+        if $0.rp_resourceType == "MedicationRequest" && ($0.rp_code?.code?.string == "57952007"){
+            r_val = true}
+        }
+    return r_val
+    
+}
+
+
+

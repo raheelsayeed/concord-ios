@@ -122,9 +122,7 @@ extension IndexViewController {
 				// This is where the fhir records live
 				self.records = fhir_reports
                 //print(self.records)
-                
-                
-                
+
                 
                 //TODO: Patient age
                 let ID: String? = nil //TODO
@@ -132,7 +130,9 @@ extension IndexViewController {
                 let age: Int? = nil // TODO
                 let diabetesMellitus = checkDiabetesMellitus(records: self.records)
                 let bloodGlucose = getHighestObservation(records: self.records, obsCode: "2339-0")
-
+                let onStatin: Bool? = checkPerscribedStatin(records: self.records)
+                
+                
                 
                 //clear environment
                 EnvClear(clipsEnv)
@@ -144,11 +144,11 @@ extension IndexViewController {
                 EnvLoad(clipsEnv, clipsFilePath)
                 
                 //Load patient
-                //let subject = CLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose)
+                //let subject = CLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose, onStatin: onStatin)
                 //let subject_str = subject.toCLIPSSubjectDefinition()
                 
                 //Load random patient
-                let subject = RandomCLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose)
+                let subject = RandomCLIPSSubject(ID: ID, LDL: LDL, age: age, diabetesMellitus: diabetesMellitus, bloodGlucose: bloodGlucose, onStatin: onStatin)
                 let subject_str = subject.toCLIPSSubjectDefinition()
                 
                 

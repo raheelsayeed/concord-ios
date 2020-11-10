@@ -16,14 +16,16 @@ public class CLIPSSubject {
     var age: Int?
     var diabetesMellitus: Bool?
     var bloodGlucose: Float?
+    var onStatin: Bool?
     
-    init(ID: String?, LDL: Float?, age: Int?, diabetesMellitus: Bool?, bloodGlucose: Float?) {
+    init(ID: String?, LDL: Float?, age: Int?, diabetesMellitus: Bool?, bloodGlucose: Float?, onStatin: Bool?) {
         //Fix ID (parents propably won't but might mess up clips - better safe than sorry)
         self.ID = ID
         self.LDL = LDL
         self.age = age
         self.diabetesMellitus = diabetesMellitus
         self.bloodGlucose = bloodGlucose
+        self.onStatin = onStatin
     }
     
     
@@ -36,6 +38,7 @@ public class CLIPSSubject {
         if self.LDL != nil {r_string += " (LDL " + self.LDL!.description + " ) "}
         if self.age != nil {r_string += " (age " + self.age!.description + " ) "}
         if self.diabetesMellitus != nil {if self.diabetesMellitus!{ r_string += " ( diabetes-mellitus yes ) "}} // default value is no
+        if self.onStatin != nil {if self.onStatin!{ r_string += " ( on-statin yes ) "}} // default value is no
         
         r_string += ")"
         return r_string

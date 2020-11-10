@@ -9,7 +9,7 @@
 import Foundation
 
 public class RandomCLIPSSubject: CLIPSSubject{
-    override init(ID: String?, LDL: Float?, age: Int?, diabetesMellitus: Bool?, bloodGlucose: Float?) {
+    override init(ID: String?, LDL: Float?, age: Int?, diabetesMellitus: Bool?, bloodGlucose: Float?, onStatin: Bool?) {
         //LDL
         let LDLLow: Float = 30.0
         let LDLHigh: Float = 300.0
@@ -22,9 +22,10 @@ public class RandomCLIPSSubject: CLIPSSubject{
         let r_age = Int.random(in: ageLow...ageHigh)
         let r_diabetes = Bool.random()
         let r_ID = ID //doesn't matter
+        let r_statin = Bool.random()
         //Blood glucose doesn't matter
         
         
-        super.init(ID: r_ID, LDL: r_LDL, age: r_age, diabetesMellitus: r_diabetes, bloodGlucose: bloodGlucose)
+        super.init(ID: r_ID, LDL: r_LDL, age: r_age, diabetesMellitus: r_diabetes, bloodGlucose: bloodGlucose, onStatin: r_statin)
     }
 }

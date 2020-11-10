@@ -66,6 +66,11 @@
 		FAD49C492555CA6500174B9B /* PatientAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49C482555CA6500174B9B /* PatientAge.swift */; };
 		FAD49C5D2555E6AB00174B9B /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49C5C2555E6AB00174B9B /* ParseReports.swift */; };
 		FAD49C5E2555E6AB00174B9B /* ParseReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD49C5C2555E6AB00174B9B /* ParseReports.swift */; };
+		FAFFE54E255AEE1200E086A7 /* CLIPSInputQuestionaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFE54D255AEE1200E086A7 /* CLIPSInputQuestionaire.swift */; };
+		FAFFE558255AEE8000E086A7 /* Procedures+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFE557255AEE8000E086A7 /* Procedures+Report.swift */; };
+		FAFFE559255AEE8000E086A7 /* Procedures+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFE557255AEE8000E086A7 /* Procedures+Report.swift */; };
+		FAFFE55B255AEE9700E086A7 /* Allergies+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFE55A255AEE9700E086A7 /* Allergies+Report.swift */; };
+		FAFFE55C255AEE9700E086A7 /* Allergies+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFFE55A255AEE9700E086A7 /* Allergies+Report.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +190,9 @@
 		FAAE8C3425509F6C00DCBC6E /* CLIPS-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLIPS-bridging-header.h"; sourceTree = "<group>"; };
 		FAD49C482555CA6500174B9B /* PatientAge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientAge.swift; sourceTree = "<group>"; };
 		FAD49C5C2555E6AB00174B9B /* ParseReports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseReports.swift; sourceTree = "<group>"; };
+		FAFFE54D255AEE1200E086A7 /* CLIPSInputQuestionaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIPSInputQuestionaire.swift; sourceTree = "<group>"; };
+		FAFFE557255AEE8000E086A7 /* Procedures+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Procedures+Report.swift"; sourceTree = "<group>"; };
+		FAFFE55A255AEE9700E086A7 /* Allergies+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Allergies+Report.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +324,8 @@
 				FA805C622555A33E00B3E836 /* Condition+Report.swift */,
 				FA805C652555A34000B3E836 /* Immunization+Report.swift */,
 				FA805C682555A34500B3E836 /* MedicationRequest+Report.swift */,
+				FAFFE557255AEE8000E086A7 /* Procedures+Report.swift */,
+				FAFFE55A255AEE9700E086A7 /* Allergies+Report.swift */,
 			);
 			path = ReportExtensions;
 			sourceTree = "<group>";
@@ -336,6 +346,7 @@
 				FA8A32D42557228500BD40A9 /* ACC_AHA_Simplified.clp */,
 				FA8A32D02557144500BD40A9 /* Test.clp */,
 				FA16748825598B55003B2F5B /* RulesActivation.swift */,
+				FAFFE54D255AEE1200E086A7 /* CLIPSInputQuestionaire.swift */,
 			);
 			path = CLIPS;
 			sourceTree = "<group>";
@@ -516,8 +527,10 @@
 				D4880F0625473871006AF019 /* LabsTableViewController.swift in Sources */,
 				D4491B0523A3F5DE00F3CAD9 /* LabCell.swift in Sources */,
 				FA805C672555A34000B3E836 /* Immunization+Report.swift in Sources */,
+				FAFFE54E255AEE1200E086A7 /* CLIPSInputQuestionaire.swift in Sources */,
 				D484F90523A2E975001A1284 /* SceneDelegate.swift in Sources */,
 				D484F90723A2E975001A1284 /* MasterViewController.swift in Sources */,
+				FAFFE55B255AEE9700E086A7 /* Allergies+Report.swift in Sources */,
 				FA8A32D12557144500BD40A9 /* Test.clp in Sources */,
 				D4880F21254872D4006AF019 /* IndexViewController.swift in Sources */,
 				FA8A32D52557228500BD40A9 /* ACC_AHA_Simplified.clp in Sources */,
@@ -526,6 +539,7 @@
 				FA805C692555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
 				FA8A32D92558968100BD40A9 /* SubjectTemplate.swift in Sources */,
 				FA805C632555A33E00B3E836 /* Condition+Report.swift in Sources */,
+				FAFFE558255AEE8000E086A7 /* Procedures+Report.swift in Sources */,
 				FA5184C62559CADC00180D9F /* GenRandomSubject.swift in Sources */,
 				FAD49C5D2555E6AB00174B9B /* ParseReports.swift in Sources */,
 			);
@@ -543,8 +557,10 @@
 				D4880EE825472208006AF019 /* SceneDelegate.swift in Sources */,
 				FA8A32D22557144500BD40A9 /* Test.clp in Sources */,
 				D4880EE925472208006AF019 /* MasterViewController.swift in Sources */,
+				FAFFE55C255AEE9700E086A7 /* Allergies+Report.swift in Sources */,
 				D4880F22254872D4006AF019 /* IndexViewController.swift in Sources */,
 				FA8A32D62557228500BD40A9 /* ACC_AHA_Simplified.clp in Sources */,
+				FAFFE559255AEE8000E086A7 /* Procedures+Report.swift in Sources */,
 				D4880EEA25472208006AF019 /* DetailViewController.swift in Sources */,
 				FA805C6A2555A34500B3E836 /* MedicationRequest+Report.swift in Sources */,
 				FA5184C72559CADC00180D9F /* GenRandomSubject.swift in Sources */,
